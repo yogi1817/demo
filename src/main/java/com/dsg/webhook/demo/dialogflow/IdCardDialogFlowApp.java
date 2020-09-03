@@ -46,7 +46,7 @@ public class IdCardDialogFlowApp extends DialogflowApp{
 
 		ResponseEntity<Orders> ordersEntity 
 			= restTemplate.exchange("https://move.dksxchange.com/user/api/v2/orderHistory?storeId=&startIndex=0&endIndex=99", 
-					HttpMethod.POST, request, Orders.class);
+					HttpMethod.GET, request, Orders.class);
 		
 		Order order = ordersEntity.getBody().getOrders().get(0);
 		return "You order no "+order.getOrdersId()+" and order total "+order.getOrderTotal()+" is "+ (order.getStatus().equals("D") ? "Complete": "In progress");
