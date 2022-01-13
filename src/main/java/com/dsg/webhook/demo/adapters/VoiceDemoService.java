@@ -3,6 +3,7 @@ package com.dsg.webhook.demo.adapters;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class VoiceDemoService implements IVoiceDemoService {
 
 	@Autowired
 	private IdCardDialogFlowApp idCardDialogFlowApp;
-	
+
 	@Override
 	public String requestOrderHistory(String payloadAsString, Map<String, String> headers) {
 		String jsonResponse = "No Data Found";

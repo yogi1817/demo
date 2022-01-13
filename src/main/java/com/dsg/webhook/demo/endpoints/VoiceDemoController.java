@@ -30,11 +30,11 @@ public class VoiceDemoController {
 		ObjectMapper objMapper = new ObjectMapper();
 		log.info("payload "+payload);
 		String payloadAsString = null;
-		try { 
-			payloadAsString = objMapper.writeValueAsString(payload); 
-        }  catch (IOException e) { 
+		try {
+			payloadAsString = objMapper.writeValueAsString(payload);
+        }  catch (IOException e) {
         	return new ResponseEntity<>("Unable to parse the request", HttpStatus.BAD_REQUEST);
-        } 
+        }
 		return new ResponseEntity<>(voiceDemoService.requestOrderHistory(payloadAsString, headers), HttpStatus.OK);
 	}
 }
